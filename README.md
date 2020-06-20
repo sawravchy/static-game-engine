@@ -2,11 +2,13 @@
 
 ## Description
 
+This repo contains the elements you need to create a cool text-based game that can be deployed as a web site. Amaze your friends! Fork the repo and build out the game elements by writing a fun storyline. You don't have to keep it as SpaceQuest, it could be a walk through a spooky house, a mysterious forest, a scuba adventure, or a bike race...let your imagination guide you! Tell us what you create in the [Issues tab](https://github.com/jlooper/static-game-engine/issues/new/choose)!
+
 ![Space Quest](screenshot.png)
 
 ## History of the Project
 
-Azure Advocates have been creating fun text-based games to encourage students of all ages to learn about Microsoft Learn and Docs. The [Azure Mystery Mansion](https://aka.ms/mysterymansion), and the ongoing [Azure Maya Mystery](https://aka.ms/AzureMayaMystery) all fit into this prototype. Em Lazer-Walker and Jen Looper worked as primary developers on the Mystery Mansion, and Jen Looper and Chris Noring were primary developers on the Maya Mystery. This game engine is a prototype that we hope will be forked and reused by all kinds of people who want to create fun text-based games and learn about web programming as well.
+Microsoft Azure Advocates have been creating fun text-based games to encourage students of all ages to learn about Microsoft Learn and Docs. The [Azure Mystery Mansion](https://aka.ms/mysterymansion), and the ongoing [Azure Maya Mystery](https://aka.ms/AzureMayaMystery) all fit into this prototype. Em Lazer-Walker and Jen Looper worked as primary developers on the Mystery Mansion, and Jen Looper and Chris Noring were primary developers on the Maya Mystery. This game engine is a prototype that we hope will be forked and reused by all kinds of people who want to create fun text-based games and learn about web programming as well.
 
 ## Architecture
 
