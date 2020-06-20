@@ -13,5 +13,4 @@ This site is a hybrid of a Vue.js Single Page Web App and a VuePress static site
 
 You can deploy this site to your own Static Web App:
 
-## The Internal Challenge
 
