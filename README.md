@@ -2,7 +2,7 @@
 
 ## Description
 
-![spacequest][screenshot.png]
+![Space Quest](screenshot.png)
 
 ## History of the Project
 
