@@ -7,10 +7,7 @@
   </div>
 </template>
 <script>
-import {
-  hasItem
-} from "@theme/utils/helpers";
-import { EventBus } from "@theme/utils/event-bus";
+import { emitter } from "@theme/utils/emitter";
 
 export default {
   props: ["url", "action", "condition", "instructions"],
@@ -18,7 +15,7 @@ export default {
   data() {
     return {
       show: false,
-      link: this.url
+      link: this.url,
     };
   },
   methods: {
@@ -31,22 +28,26 @@ export default {
     },
     goToRoom(url) {
       this.$router.replace({ path: url });
-    }
+    },
   },
   created() {
-    EventBus.$on("item_added", id => {
+    //initially, set home page to show followup
+    this.getInventory(1);
+
+    emitter.on("item_added", (id) => {
+      console.log(id);
       this.getInventory(id);
     });
 
-    EventBus.$on("showResult", id => {
+    emitter.on("showResult", (id) => {
+      console.log("show results");
+      console.log(id);
       this.getInventory(id);
     });
-    //initially, set home page to show followup
-    this.getInventory(1);
-    
-   
   },
-  
+  mounted() {
+    emitter.on("*", (type, e) => console.log("listening to page ", type, e));
+  },
 };
 </script>
 <style lang="stylus">

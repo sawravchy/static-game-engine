@@ -1,4 +1,4 @@
 module.exports = {
 	layoutDir: 'layouts',
-	globalLayout: '/layouts/Layout.vue'
+	globalLayout: '/layouts/Layout.vue',
 };

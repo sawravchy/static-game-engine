@@ -15,50 +15,46 @@
 </template>
 <script>
 const items = require("@theme/utils/items.json");
-import {
-  addItem,
-  hasItem
-} from "@theme/utils/helpers";
-import { EventBus } from "@theme/utils/event-bus";
+import { addItem } from "@theme/utils/helpers";
+import { emitter } from "@theme/utils/emitter";
 
 export default {
   props: ["id"],
 
-  
   computed: {
     item() {
-      let item = items.find(row => row.id == this.id);
+      let item = items.find((row) => row.id == this.id);
       item = item || { name: "not set" };
       return item;
     },
     getInstructions() {
-      let currItem = items.find(row => row.id == this.id);
-      
-        currItem = currItem.instructions;
-      
+      let currItem = items.find((row) => row.id == this.id);
+
+      currItem = currItem.instructions;
+
       return currItem;
     },
     getResult() {
-      let currItem = items.find(row => row.id == this.id);
-     
-        currItem = currItem.result;
-      
+      let currItem = items.find((row) => row.id == this.id);
+
+      currItem = currItem.result;
+
       return currItem;
     },
     getName() {
-      let currItem = items.find(row => row.id == this.id);
-      
-        currItem = currItem.name;
-      
+      let currItem = items.find((row) => row.id == this.id);
+
+      currItem = currItem.name;
+
       return currItem;
-    }
+    },
   },
   data() {
-    const item = items.find(row => row.id == this.id);
+    const item = items.find((row) => row.id == this.id);
 
     return {
       showInstructions: !item || item.initialHide,
-      showResult: false
+      showResult: false,
     };
   },
   methods: {
@@ -66,23 +62,23 @@ export default {
       var jsonData = {};
       var columnName = item.id;
       jsonData[columnName] = item.gameItem;
-     
+
       let addOk = confirm("Collect item?");
       if (addOk) {
         addItem(item.id);
-        EventBus.$emit("item_added", item.id);
-        
+
+        emitter.emit("item_added", item.id);
+
         //you got the item, so hide the prompt
         this.showInstructions = false;
       }
     },
     emitResult(item) {
-      EventBus.$emit("showResult", item.id);
+      emitter.emit("showResult", item.id);
     },
-    callback(e) {
-      console.log(e);
-    }
   },
- 
+  mounted() {
+    emitter.on("*", (type, e) => console.log("listening to item ", type, e));
+  },
 };
 </script>

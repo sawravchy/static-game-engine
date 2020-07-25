@@ -9,9 +9,7 @@
         <div class="wrapper">
           <div v-for="item in inventory" class="item">
             <div class="inventoryItem">
-   
-                <p class="caption">{{ getName(item) }}</p>
-              
+              <p class="caption">{{ getName(item) }}</p>
             </div>
           </div>
         </div>
@@ -22,10 +20,10 @@
 <script>
 import { getItems } from "@theme/utils/helpers";
 const items = require("@theme/utils/items.json");
+import { emitter } from "@theme/utils/emitter";
 
 export default {
   name: "Inventory",
-  
 
   data() {
     let obj = { inventory: [] };
@@ -34,7 +32,7 @@ export default {
   methods: {
     showInventoryItems() {
       var ids = getItems();
-      this.inventory = ids.map(id => items.find(item => item.id == id));
+      this.inventory = ids.map((id) => items.find((item) => item.id == id));
     },
     getName(item) {
       if (!item.name) {
@@ -44,27 +42,28 @@ export default {
       currItem = currItem.name;
       return currItem;
     },
-    
   },
   created() {
     this.showInventoryItems();
-    
+
+    emitter.on("item_added", (id) => {
+      console.log("item added");
+      this.showInventoryItems();
+    });
   },
-  
+  mounted() {
+    emitter.on("*", (type, e) => console.log("listening to item ", type, e));
+  },
 };
 </script>
 <style scoped>
-
-.inventoryItem{
+.inventoryItem {
   text-align: center;
   background-color: white;
   padding: 1em;
-  border-radius: 2px
+  border-radius: 2px;
 }
 .caption {
   padding-top: 0px;
 }
-
-
-
 </style>

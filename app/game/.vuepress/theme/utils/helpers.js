@@ -1,4 +1,5 @@
 // is on Node.js, i.e building project
+
 if (typeof window === 'undefined') {
 	console.log('is Node.js');
 
@@ -16,34 +17,23 @@ if (typeof window === 'undefined') {
 	};
 }
 
-
-
-export function hasItem(id) {
-	var json = localStorage.getItem('snapshots');
-	var snaps = JSON.parse(json);
-	if (!snaps) {
-		snaps = {};
-	}
-	return snaps[id];
-}
-
 export function addItem(id) {
-	var json = localStorage.getItem('snapshots');
-	var snaps = JSON.parse(json);
-	if (!snaps) {
-		snaps = {};
+	var json = localStorage.getItem('inventory_item');
+	var inv_items = JSON.parse(json);
+	if (!inv_items) {
+		inv_items = {};
 	}
-	snaps[id] = true;
-	localStorage.setItem('snapshots', JSON.stringify(snaps));
+	inv_items[id] = true;
+	localStorage.setItem('inventory_item', JSON.stringify(inv_items));
 }
 
 export function getItems() {
-	var json = localStorage.getItem('snapshots');
+	var json = localStorage.getItem('inventory_item');
 
-	var snaps = JSON.parse(json);
-	if (!snaps) {
-		snaps = {};
+	var inv_items = JSON.parse(json);
+	if (!inv_items) {
+		inv_items = {};
 	}
-	var keys = Object.keys(snaps);
+	var keys = Object.keys(inv_items);
 	return keys;
 }

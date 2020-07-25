@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
 	title: 'SpaceQuest',
 	description: 'Enjoy the Journey',
@@ -9,5 +7,4 @@ module.exports = {
 	themeConfig: {
 		search: false,
 	},
-	
 };

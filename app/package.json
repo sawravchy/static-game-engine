@@ -11,9 +11,10 @@
 	"author": "softchris,jlooper",
 	"license": "MIT",
 	"dependencies": {
-		"autoprefixer": "9.6.1",
+		"autoprefixer": "^9.8.5",
 		"axios": "^0.19.2",
-		"tailwindcss": "1.1.2",
+		"mitt": "^2.1.0",
+		"tailwindcss": "^1.5.2",
 		"vuepress": "^1.5.2"
 	},
 	"repository": {
